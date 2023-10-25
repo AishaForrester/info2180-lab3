@@ -19,6 +19,13 @@ document.addEventListener("DOMContentLoaded", function() {  //works when page is
       }
       
     });  //end of listener (for when button is clicked)
+
+    square.addEventListener("mouseover", function(){ //colour will change when you hover the square
+      square.classList.add("hover")
+    });
+    square.addEventListener("mouseout", function(){  //colour will go back to normal afterwards
+      square.classList.remove("hover")
+    });
     
   }); //end of forEach for going through tiles
   console.log(keepTrack)
