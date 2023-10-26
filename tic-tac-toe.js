@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {  //javascript works w
   const XT = "X"
   playingNow = XT
   var stat = document.querySelector("#status");
+  const restart = document.querySelector(".btn")
   
 
 
@@ -43,10 +44,22 @@ document.addEventListener("DOMContentLoaded", function() {  //javascript works w
     square.addEventListener("mouseout", function(){  //colour will go back to normal afterwards
       square.classList.remove("hover")
     });
-
     
     
   }); //end of forEach for going through boxes
+
+  restart.addEventListener("click", function(){
+    squares.forEach(function(square){  //resetting our board
+      square.innerHTML = ""
+      square.classList.remove(XT,OT)
+    })  //end of forEach loop
+
+    keepTrack = ["","","","","","","","",""]  //refreshing keepTrack
+
+    stat.textContent = "Move your mouse over a square and click to play an X or an O.";
+    stat.classList.remove("you-won");  //refreshing words at top of board and removing css styles
+  });
+
 
   function isAnyElementEmpty(someArray) {  //check if our keepTrack is empty or not
     return someArray.some(element => element === "");
